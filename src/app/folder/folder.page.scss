@@ -1,5 +1,6 @@
 ion-menu-button {
-  color: var(--ion-color-primary);
+ // color: var(--ion-color-primary);
+ color: #fff;
 }
 
 #container {
@@ -25,4 +26,8 @@ ion-menu-button {
 
 #container a {
   text-decoration: none;
+}
+
+.selection-card{  
+  margin:2px;
 }

@@ -1,0 +1,56 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>saved-article</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngFor="let article of articleList" size="12" size-md="6" size-lg="4">
+        <ion-card *ngIf="!showPageLoader">
+          <ion-img src="{{article.urlToImage}}"></ion-img>
+          <ion-card-header>
+            <ion-card-title>
+              {{article.title}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col>
+                <ion-button expand="block" color="secondary" fill="outline" (click)="removeArticle(article.url)">
+                  <ion-icon name="trash" color="secondary"></ion-icon>
+                  Remove
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button expand="block" color="secondary" (click)="openNewsDetailPage(article)">
+                  <ion-icon name="eye" color="light"></ion-icon>
+                  View
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col *ngIf="!articleList.length && !showPageLoader">
+        <ion-card>
+          <ion-card-header>
+            <strong>
+              No saved article found!
+            </strong>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-spinner name="lines" color="secondary" class="page-loader" *ngIf="showPageLoader"></ion-spinner>
+  </ion-grid>
+</ion-content>

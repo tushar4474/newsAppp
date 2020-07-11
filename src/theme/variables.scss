@@ -76,6 +76,10 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
+
+
+
+
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
@@ -147,6 +151,8 @@
     --ion-color-light-tint: #383a3e;
   }
 
+  
+
   /*
    * iOS Dark Theme
    * -------------------------------------------
@@ -179,7 +185,7 @@
     --ion-color-step-900: #e6e6e6;
     --ion-color-step-950: #f2f2f2;
 
-    --ion-toolbar-background: #0d0d0d;
+   // --ion-toolbar-background: #0d0d0d;
 
     --ion-item-background: #000000;
   }
@@ -221,8 +227,14 @@
 
     --ion-item-background: #1e1e1e;
 
-    --ion-toolbar-background: #1f1f1f;
+   
 
     --ion-tab-bar-background: #1f1f1f;
   }
+}
+
+
+.md{
+  --ion-toolbar-background: var(--ion-color-secondary);
+  --ion-toolbar-color:#fff;
 }
